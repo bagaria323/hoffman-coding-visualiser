@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Huffman Coding Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Huffman Coding Visualizer</h1>
+      <p>Type or upload a file to see how Huffman's algorithm compresses text using a greedy tree-based approach.</p>
+    </header>
+
+    <!-- Upload or Input Section -->
+    <section class="input-section">
+      <label for="file-input"><strong>Upload a .txt file:</strong></label>
+      <input type="file" id="file-input" accept=".txt" />
+
+      <label for="text-input" class="visually-hidden">Text Input</label>
+      <textarea id="text-input" placeholder="Type or paste your text here..."></textarea>
+
+      <button id="compress-btn">Compress</button>
+    </section>
+
+    <!-- Compression Results -->
+    <section id="results" class="hidden">
+      <h2>Compression Results</h2>
+      
+      <div class="stats">
+        <p><strong>Original Size:</strong> <span id="original-size"></span> bits</p>
+        <p><strong>Compressed Size:</strong> <span id="compressed-size"></span> bits</p>
+        <p><strong>Compression Ratio:</strong> <span id="ratio"></span></p>
+      </div>
+
+      <h3>Huffman Tree Visualization</h3>
+      <div class="tree-container">
+        <div id="huffman-tree-visual">
+          <!-- Optional: Add canvas or SVG for visualizing the tree -->
+        </div>
+      </div>
+
+      <h3>Huffman Codes</h3>
+      <table id="codes-table">
+        <thead>
+          <tr>
+            <th>Character</th>
+            <th>Huffman Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dynamic rows inserted via JavaScript -->
+        </tbody>
+      </table>
+
+      <h3>Encoded Output</h3>
+      <div id="encoded-string" class="encoded-output"></div>
+      
+      <button id="download-btn" class="secondary-btn">Download Compressed File</button>
+    </section>
+
+    <!-- Decompression Section -->
+    <section id="decompress-section" class="hidden">
+      <h2>Decompression</h2>
+      <p>Use the encoded string above to restore the original text.</p>
+
+      <label for="decompress-input" class="visually-hidden">Encoded Binary Input</label>
+      <textarea id="decompress-input" placeholder="Compressed binary string..."></textarea>
+
+      <button id="decompress-btn">Decompress</button>
+
+      <h3>Decoded Text</h3>
+      <div id="decoded-output" class="decoded-text"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
